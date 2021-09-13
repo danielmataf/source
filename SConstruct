@@ -77,11 +77,19 @@ env.Library(source = sensi_sources, target = "lib/gsensitivity")
 
 
 # Physics
-env.Append(CPPPATH = 'physics')
+env.Append(CPPPATH = 'physics/east')
 phys_sources = Split("""
-	physics/PhysicsList.cc
-	physics/GammaNuclearPhysics.cc
-	physics/PhysicsListMessenger.cc""")
+	physics/east/eASTPhysicsList.cc
+	physics/east/eASTAntiBaryonPhysics.cc
+	physics/east/eASTGammaLeptoNuclearPhysics.cc
+	physics/east/eASTHyperonPhysics.cc
+	physics/east/eASTIonPhysics.cc
+	physics/east/eASTKaonPhysics.cc
+	physics/east/eASTNeutronPhysics.cc
+	physics/east/eASTPhysicsListMessenger.cc
+	physics/east/eASTProtonPhysics.cc
+	physics/east/eASTPionPhysics.cc
+	""")
 env.Library(source = phys_sources, target = "lib/gphysics")
 
 # Fields

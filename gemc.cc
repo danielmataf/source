@@ -53,7 +53,7 @@ const char *GEMC_VERSION = "gemc 2.9";
 #include "MDetectorConstruction.h"
 #include "outputFactory.h"
 #include "HitProcess.h"
-#include "PhysicsList.h"
+//#include "PhysicsList.h"
 #include "gemcOptions.h"
 #include "dmesg_init.h"
 #include "run_conditions.h"
@@ -64,6 +64,10 @@ const char *GEMC_VERSION = "gemc 2.9";
 #include "string_utilities.h"
 #include "gemcUtils.h"
 #include "ActionInitialization.h"
+
+// east Physics
+#include "eASTPhysicsList.hh"
+
 
 // c++ headers
 #include <unistd.h>  // needed for get_pid
@@ -211,7 +215,10 @@ int main( int argc, char **argv )
 	///< Physics List
 	string phys_list = gemcOpt.optMap["PHYSICS"].args  ;
 	gemc_splash.message(" Initializing Physics List " + phys_list + "...");
-	runManager->SetUserInitialization(new PhysicsList(gemcOpt));
+	runManager->SetUserInitialization(new eASTPhysicsList());
+//	runManager->SetUserInitialization(new PhysicsList(gemcOpt));
+
+
 
 	// Setting Max step for all the simulation.
 	// Notice: on the forum:
